@@ -1,17 +1,14 @@
 
-body { background-color: #F2F6D0 }
-#wrapper {
-  width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 5%;
+
+.box-1 {
+  width: 50%;
+  color: green;
 }
-#articles {
-  display: inline-block;
-  overflow: auto;
-  width: 60%;
-  height: 700px;
+
+.summary:hover {
+  cursor: pointer;
 }
+
 #notes {
   float: right;
   width: 30%;
