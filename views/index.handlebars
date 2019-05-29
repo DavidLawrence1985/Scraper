@@ -8,8 +8,8 @@
             <li>
                     <h2 id="article-title">{{title}}</h1>
                     <a href="{{link}}" id="story">View Story</a>
-                    <p class="summary">{{summary}}</p>
-                    <form id="note-form">
+                    <p class="summary" data-id={{_id}}>{{summary}}</p>
+                    {{!-- <form id="note-form">
                         Name<br>
                         <input type="text" name="name" id="name-input" >
                         <br>
@@ -17,8 +17,8 @@
                         <input type="text-area" name="body" id="body-input" >
                         <br><br>
                         <input type="submit" value="Submit" id="save-note">
-                        </form> 
-                    <p id="notes">{{note}}</p>    
+                        </form>  --}}
+                    <p id="notes">{{Note}}</p>    
             </li>      
                 
             {{/each}}
