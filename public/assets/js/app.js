@@ -1,5 +1,4 @@
-    // Whenever someone clicks a p tag
-$(document).on("click", ".summary", function() {
+$(document).on("click", "#view-note", function() {
   // Empty the notes from the note section
   $("#notes").empty();
   // Save the id from the p tag
@@ -14,13 +13,46 @@ $(document).on("click", ".summary", function() {
     .then(function(data) {
       console.log(data);
       // The title of the article
-      $("#notes").append("<h2>" + data.name + "</h2>");
+      $("#note-header").text(data.title);
       // An input to enter a new title
-      $("#notes").append("<input id='name-input' name='name' >");
+      $("#note-title").html("<p id='name-input'></p>");
       // A textarea to add a new note body
-      $("#notes").append("<textarea id='body-input' name='body'></textarea>");
+      $("#note-body").html("<p id='body-input'></p");
       // A button to submit a new note, with the id of the article saved to it
-      $("#notes").append("<button data-id='" + data._id + "' id='save-note'>Save Note</button>");
+      // $("#save-note-btn").html("<p data-id='" + data._id + "' id='save-note' class='list-button'>Save Note</p>");
+      $("#close-note-btn").html("<p data-id='" + data._id + "' id='close' class='list-button'>close</p>");
+
+      // If there's a note in the article
+      if (data.note) {
+        $("#name-input").val(data.note.name);
+        $("#body-input").val(data.note.body);
+      }
+    });
+});
+
+$(document).on("click", "#new-note", function() {
+  // Empty the notes from the note section
+  $("#notes").empty();
+  // Save the id from the p tag
+  var thisId = $(this).attr("data-id");
+
+  // Now make an ajax call for the Article
+  $.ajax({
+    method: "GET",
+    url: "/articles/" + thisId
+  })
+    // With that done, add the note information to the page
+    .then(function(data) {
+      console.log(data);
+      // The title of the article
+      $("#note-header").text(data.title);
+      // An input to enter a new title
+      $("#note-title").html("<input id='name-input' name='name' >");
+      // A textarea to add a new note body
+      $("#note-body").html("<textarea id='body-input' name='body'></textarea>");
+      // A button to submit a new note, with the id of the article saved to it
+      $("#save-note-btn").html("<p data-id='" + data._id + "' id='save-note' class='list-button'>Save Note</p>");
+      $("#close-note-btn").html("<p data-id='" + data._id + "' id='close' class='list-button'>close</p>");
 
       // If there's a note in the article
       if (data.note) {
@@ -58,3 +90,8 @@ $(document).on("click", "#save-note", function() {
   $("#name-input").val("");
   $("#body-input").val("");
 });
+
+$(document).on("click", "#close", function() {
+  $("#notes").empty();
+
+})

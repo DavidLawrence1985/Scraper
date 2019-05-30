@@ -24,12 +24,18 @@
 }
 
 #main-title {
-  font-size: 2rem;
+  font-size: 3.5rem;
   font-weight: 750;
+  text-align: center;
+}
+
+.wrapper {
+ 
 }
 
 .list {
   list-style: none;
+  /* display: inline-block; */
 }
 
 #article-title {
@@ -45,15 +51,19 @@
 
 }
 
-.box-1 {
-  width: 50%;
+#note-title {
+  font-size: .75rem;
+  color:blue;
 }
 
-.summary:hover {
+.list-button{
+  display: inline-block;
+  margin: .5rem;
+  width: auto;
+  padding: .75rem;
+  background: greenyellow;
+}
+
+.list-button:hover {
   cursor: pointer;
-}
-
-#notes {
-  float: right;
-  width: 30%;
 }
