@@ -8,10 +8,12 @@
                     <h2 id="article-title">{{title}}</h1>
                     <p class="summary" >{{summary}}</p>
                     <a href="{{link}}" id="story" class="list-button">View Story</a>
-                    <p  id="view-note" class="list-button note-modal" data-id={{_id}} data-toggle="modal" data-target="#view-note-modal">View Note</p>
+                    <h5>comments</h5>
+                        <p id="comments"></p>
+                    <p  id="view-note" class="list-button note-modal" data-id={{_id}} >View Note</p>
                     <p  id="new-note" class="list-button" data-id={{_id}} data-toggle="modal" data-target="#create-note-modal" >Create Note</p>
                        
-                            {{!-- <div id="notes"></div>  --}}
+                            {{!-- <div id="notes"> data-toggle="modal" data-target="#view-note-modal" was for view note</div>  --}}
                     
                     
                     
@@ -41,6 +43,7 @@
                     <div class="modal-footer">
                         <div id="close-note-btn" data-dismiss="modal"></div>
                         <div id="save-note-btn"></div>
+                        <div id="delete-note-btn"></div>
                     </div>
                     </div>
                 </div>
@@ -57,9 +60,15 @@
                     </div>
                     <div class="modal-body">
                         <div id="notes-wrapper">       
-                            <h5 id="note-header"></h5>
-                            <div id="note-title"></div>
-                            <div id="note-body"></div>
+                             <ul class="notes">
+                                <li>
+                                    <span id="note-name"></span>
+                                    <spanid="note-body"></span>
+                                </li>
+                            </ul>
+                            <h5 id="view-header"></h5>
+                            <div id="view-title"></div>
+                            <div id="view-body"></div>
                         </div>
                     </div>
                     <div class="modal-footer">

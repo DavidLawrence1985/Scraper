@@ -89,6 +89,19 @@ router.get("/notes", function(req, res) {
                 res.json(err);
             });
     });
+    
+router.get("/notes/:id", function(req, res) {
+    // Grab every document in the Articles collection
+        db.Note.findOne({ _id: req.params.id })
+            .then(function(dbNotes) {
+    
+                res.json(dbNotes);
+            })
+            .catch(function(err) {
+            // If an error occurred, send it to the client
+                res.json(err);
+            });
+    });
 
 // Route for grabbing a specific Article by id, populate it with it's note
 router.get("/articles/:id", function(req, res) {
@@ -106,21 +119,49 @@ router.get("/articles/:id", function(req, res) {
     });
 });
 
+router.get("/articles/:id/", function(req, res) {
+// Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
+    db.Article.find({ _id: req.params.id })
+    // ..and populate all of the notes associated with it
+    .populate("note")
+    .then(function(dbArticle) {
+    // If we were able to successfully find an Article with the given id, send it back to the client
+        res.json(dbArticle);
+    })
+    .catch(function(err) {
+    // If an error occurred, send it to the client
+        res.json(err);
+    });
+});
+
 router.post("/articles/:id", function(req, res) {
   // Create a new note and pass the req.body to the entry
   db.Note.create(req.body)
     .then(function(dbNote) {
       
-      return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
+      return db.Article.findOneAndUpdate({ _id: req.params.id }, { $push : {note: dbNote._id }}, { new: true });
     })
     .then(function(dbArticle) {
-      // If we were able to successfully update an Article, send it back to the client
       res.json(dbArticle);
     })
     .catch(function(err) {
-      // If an error occurred, send it to the client
+
       res.json(err);
     });
 });
+
+
+router.delete("/articles/:id" , (req, res) => {
+
+    db.Note.remove().then((dbNote) => {
+      res.json(dbNote);
+    })
+
+.catch((err) => {
+  res.json(err);
+})
+});
+    
+
 
   module.exports = router;
