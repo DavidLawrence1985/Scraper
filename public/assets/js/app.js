@@ -1,8 +1,6 @@
 //--view added comments in  modal
 
-
 $(document).on("click", "#view-note", function() {
-  view();
   $("#view-comments").empty();
   var thisId = $(this).attr("data-id");
   console.log(thisId);
@@ -23,7 +21,7 @@ $(document).on("click", "#view-note", function() {
       console.log(noteId + " note id");
       var commentDiv = $("<div>");
       commentDiv.addClass("comment-div");
-      var name = $("<p>").text("Name: " + noteName);
+      var name = $("<h3>").text("Name: " + noteName);
       var body = $("<p>").text("Comment: " + noteBody);
       var deleteButton = $("<P>").text("Delete");
       deleteButton.attr("data-id", noteId)
@@ -54,13 +52,12 @@ $(document).on("click", "#new-note", function() {
 
     .then(function(data) {
       console.log(data);
-      // The title of the article
       $("#note-header").text(data.title);
       // An input to enter a new title
       $("#note-title").html("<input id='name-input' name='name' >");
       // A textarea to add a new note body
       $("#note-body").html("<textarea id='body-input' name='body'></textarea>");
-      $("#save-note-btn").html("<p data-id='" + data._id + "' id='save-note' class='list-button'>Save Note</p>");
+      $("#save-note-btn").html("<p data-id='" + data._id + "' id='save-note' class='list-button' data-toggle='modal' data-target='#create-note-modal'>Add</p>");
       $("#close-note-btn").html("<p data-id='" + data._id + "' id='close' class='list-button'>close</p>");
     
     });
@@ -72,7 +69,7 @@ $(document).on("click", "#save-note", function() {
 
   var newNote = {
     name: $("#name-input").val(),
-    // Value taken from note textarea
+    // Value taken from note textareaf
     body: $("#body-input").val()
   };
 
@@ -84,6 +81,7 @@ $(document).on("click", "#save-note", function() {
   })
     .then(function(data) {
       $("#notes").empty();
+      
     });
 
   $("#name-input").val("");
@@ -95,7 +93,7 @@ $(document).on("click", "#delete-comment", function() {
   var thisId = $(this).attr("data-id");
 
   $.ajax({
-    method: "POST",
+    method: "DELETE",
     url: "/notes/" + thisId,
   })
     
