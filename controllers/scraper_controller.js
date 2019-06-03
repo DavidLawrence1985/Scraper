@@ -89,7 +89,7 @@ router.get("/notes", function(req, res) {
                 res.json(err);
             });
     });
-    
+
 router.get("/notes/:id", function(req, res) {
     // Grab every document in the Articles collection
         db.Note.findOne({ _id: req.params.id })
@@ -151,13 +151,14 @@ router.post("/articles/:id", function(req, res) {
 });
 
 
-router.delete("/articles/:id" , (req, res) => {
+router.get("/notes/:id" , function(req, res) {
 
-    db.Note.remove().then((dbNote) => {
+    db.Note.deleteOne({_id: req.params.id}).then(function(dbNote){
       res.json(dbNote);
+      
     })
 
-.catch((err) => {
+.catch(function(err) {
   res.json(err);
 })
 });

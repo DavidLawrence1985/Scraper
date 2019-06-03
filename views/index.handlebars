@@ -8,16 +8,10 @@
                     <h2 id="article-title">{{title}}</h1>
                     <p class="summary" >{{summary}}</p>
                     <a href="{{link}}" id="story" class="list-button">View Story</a>
-                    <h5>comments</h5>
-                        <p id="comments"></p>
-                    <p  id="view-note" class="list-button note-modal" data-id={{_id}} >View Note</p>
+                    <!-- <h5>comments</h5>
+                        <p id="comments" data-id={{_id}}></p> -->
+                    <p  id="view-note" class="list-button note-modal" data-id={{_id}} data-toggle="modal" data-target="#view-note-modal">View Note</p>
                     <p  id="new-note" class="list-button" data-id={{_id}} data-toggle="modal" data-target="#create-note-modal" >Create Note</p>
-                       
-                            {{!-- <div id="notes"> data-toggle="modal" data-target="#view-note-modal" was for view note</div>  --}}
-                    
-                    
-                    
-                    <!-- <p class="notes">{{note}}</p> -->
                     
             </li>      
                 
@@ -53,22 +47,15 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">New Note</h5>
+                        <h5 class="modal-title">Comments</h5>
+                        <!-- <p id="comments" data-id={{_id}}></p> -->
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div id="notes-wrapper">       
-                             <ul class="notes">
-                                <li>
-                                    <span id="note-name"></span>
-                                    <spanid="note-body"></span>
-                                </li>
-                            </ul>
-                            <h5 id="view-header"></h5>
-                            <div id="view-title"></div>
-                            <div id="view-body"></div>
+                        <div id="view-comments">       
+                            
                         </div>
                     </div>
                     <div class="modal-footer">
