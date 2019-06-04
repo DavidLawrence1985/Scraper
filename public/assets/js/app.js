@@ -1,4 +1,3 @@
-//--view added comments in  modal
 
 $(document).on("click", "#view-note", function() {
   $("#view-comments").empty();
@@ -24,9 +23,14 @@ $(document).on("click", "#view-note", function() {
       var name = $("<h3>").text("Name: " + noteName);
       var body = $("<p>").text("Comment: " + noteBody);
       var deleteButton = $("<P>").text("Delete");
-      deleteButton.attr("data-id", noteId)
-      deleteButton.attr("id", "delete-comment")
-      deleteButton.addClass("list-button")
+      deleteButton.attr("data-id", noteId);
+      deleteButton.attr("id", "delete-comment");
+      deleteButton.attr("data-dismiss", "modal");
+      deleteButton.attr("data-target", "#view-note-modal")
+      deleteButton.attr("data-toggle", "modal")
+      deleteButton.attr("data-target", "#delete-alert")
+// data-toggle="modal" data-target="#exampleModal"
+      deleteButton.addClass("list-button");
       name.addClass("comment-name");
       body.addClass("comment-body");
 
@@ -98,14 +102,12 @@ $(document).on("click", "#delete-comment", function() {
   })
     
     .then(function(data) {
-      console.log(thisId + "deleted")
+      console.log(thisId + " deleted");
   
-    });
+  });
 });
 
 $(document).on("click", "#close", function() {
   $("#notes").empty();
 
-})
-
-
+});
