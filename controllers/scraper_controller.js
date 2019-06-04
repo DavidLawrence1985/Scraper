@@ -151,9 +151,10 @@ router.post("/articles/:id", function(req, res) {
 });
 
 
-router.get("/notes/:id" , function(req, res) {
+router.delete("/notes/:id" , function(req, res) {
 
-    db.Note.deleteOne({_id: req.params.id}).then(function(dbNote){
+    db.Note.findOneAndRemove({_id: req.params.id})
+    .then(function(dbNote){
       res.json(dbNote);
       
     })
