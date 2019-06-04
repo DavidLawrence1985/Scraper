@@ -28,28 +28,12 @@ app.use(routes);
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost/Scraper", { useNewUrlParser: true });
 
-// var MONGODB_URI = "mongodb://heroku_0f6n41sd:JuAUE7AV2LLpbWg@ds131747.mlab.com:31747/heroku_0f6n41sd" || ("mongodb://localhost/Scraper", { useeNewUrlParser: true});
-
+// var MONGODB_URI =  ("mongodb://localhost/Scraper", { useeNewUrlParser: true});
+// // "mongodb://heroku_0f6n41sd:JuAUE7AV2LLpbWg@ds131747.mlab.com:31747/heroku_0f6n41sd" ||
 // mongoose.connect(MONGODB_URI);
 
-var uristring =
-process.env.MONGOLAB_URI ||
-process.env.MONGOHQ_URL ||
-'mongodb://localhost/Scraper';
-
-// The http server will listen to an appropriate port, or default to
-// port 5000.
-var theport = process.env.PORT || 5000;
-
-// Makes connection asynchronously.  Mongoose will queue up database
-// operations and release them when the connection is complete.
-mongoose.connect(uristring, function (err, res) {
-  if (err) {
-  console.log ('ERROR connecting to: ' + uristring + '. ' + err);
-  } else {
-  console.log ('Succeeded connected to: ' + uristring);
-  }
-});
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.connect(MONGODB_URI);
 
 // Start the server
 app.listen(PORT, function() {
