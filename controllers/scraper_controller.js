@@ -4,8 +4,6 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 var db = require("../models");
 
-// var Article = require("../models/index.js");
-
 // A GET route for scraping the echoJS website
 router.get("/scrape", function(req, res) {
     // First, we grab the body of the html with axios
