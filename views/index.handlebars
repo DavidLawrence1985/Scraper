@@ -1,29 +1,31 @@
 <div class="wrapper">
+    <div class="inner-wrap">
 
-        <h1 id="main-title">articles</h2>
+        <h1 id="main-title">Articles</h2>
             <ul class="list">
-            {{#each articles }}
-                
-            <li>
-                    <h2 id="article-title">{{title}}</h1>
-                    <p class="summary" >{{summary}}</p>
-                    <a href="{{link}}" id="story" class="list-button">View Story</a>
-                    <!-- <h5>comments</h5>
-                        <p id="comments" data-id={{_id}}></p> -->
-                    <p  id="view-note" class="list-button note-modal" data-id={{_id}} data-toggle="modal" data-target="#view-note-modal">View Note</p>
-                    <p  id="new-note" class="list-button" data-id={{_id}} data-toggle="modal" data-target="#create-note-modal" >Create Note</p>
+                {{#each articles }}
                     
-            </li>      
-                
-            {{/each}}
+                <li>
+                        <h2 id="article-title">{{title}}</h1>
+                        <p class="summary" >{{summary}}</p>
+                        <div class="buttons-div">
+                            <a href="{{link}}" id="story" class="list-button">View Story</a>
+                            <p  id="view-note" class="list-button note-modal" data-id={{_id}} data-toggle="modal" data-target="#view-note-modal">View Comments</p>
+                            <p  id="new-note" class="list-button" data-id={{_id}} data-toggle="modal" data-target="#create-note-modal" >Leave Comment</p>
+                        </div>    
+                </li>      
+                    
+                {{/each}}
             </ul>
+
+
 
             {{!-- create comment --}}
             <div class="modal" id="create-note-modal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">New Note</h5>
+                        <h5 class="modal-title">Leave Comment</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -31,7 +33,9 @@
                     <div class="modal-body">
                         <div id="notes-wrapper">       
                             <h5 id="note-header"></h5>
+                            <p class="comment-header">Name:</p>
                             <div id="note-title"></div>
+                            <p class="comment-header">Comment:</p>
                             <div id="note-body"></div>
                         </div>
                     </div>
@@ -82,23 +86,10 @@
                         <p>Comment deleted</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-id={{_id}} data-toggle="modal" data-target="#view-note-modal">ok</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-id={{_id}} data-toggle="modal" data-target="#view-note-modal">ok</button>
                     </div>
                     </div>
                 </div>
             </div>
-
-
-            
-               
-
-            
-
-              
-            
-
-           <!-- <div id="notes box-2" ></div>-->
-
-            
-        
     </div>
+</div>

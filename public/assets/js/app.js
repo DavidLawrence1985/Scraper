@@ -29,8 +29,7 @@ $(document).on("click", "#view-note", function() {
       deleteButton.attr("data-target", "#view-note-modal")
       deleteButton.attr("data-toggle", "modal")
       deleteButton.attr("data-target", "#delete-alert")
-// data-toggle="modal" data-target="#exampleModal"
-      deleteButton.addClass("list-button");
+      deleteButton.attr("class", "btn btn-danger");
       name.addClass("comment-name");
       body.addClass("comment-body");
 
@@ -61,8 +60,8 @@ $(document).on("click", "#new-note", function() {
       $("#note-title").html("<input id='name-input' name='name' >");
       // A textarea to add a new note body
       $("#note-body").html("<textarea id='body-input' name='body'></textarea>");
-      $("#save-note-btn").html("<p data-id='" + data._id + "' id='save-note' class='list-button' data-toggle='modal' data-target='#create-note-modal'>Add</p>");
-      $("#close-note-btn").html("<p data-id='" + data._id + "' id='close' class='list-button'>close</p>");
+      $("#save-note-btn").html("<p data-id='" + data._id + "' id='save-note' class='btn btn-success' data-toggle='modal' data-target='#create-note-modal'>Add</p>");
+      $("#close-note-btn").html("<p data-id='" + data._id + "' id='close' class='btn btn-danger'>close</p>");
     
     });
 });
