@@ -32,7 +32,7 @@ router.get("/scrape", function(req, res) {
             // View the added result in the console
             console.log(dbArticle);
            
-                // window.location("/");
+            window.location.href("/");
         
           })
           .catch(function(err) {

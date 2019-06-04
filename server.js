@@ -28,12 +28,7 @@ app.use(routes);
 
 // mongoose.connect("mongodb://localhost/Scraper", { useNewUrlParser: true });
 
-
-// var MONGODB_URI = "mongodb://heroku_0f6n41sd:JuAUE7AV2LLpbWg@ds131747.mlab.com:31747/heroku_0f6n41sd" || ("mongodb://localhost/Scraper", { useNewUrlParser: true});
-
-// mongoose.connect(MONGODB_URI);
-
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scraper";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/Scraper";
 
 mongoose.connect(MONGODB_URI);
 
