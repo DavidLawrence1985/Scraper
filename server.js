@@ -2,7 +2,7 @@ var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
-var PORT = 3001;
+var PORT = process.env.PORT || 3001;
 
 // Initialize Express
 var app = express();
@@ -33,6 +33,7 @@ app.use(routes);
 // mongoose.connect(MONGODB_URI);
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
 mongoose.connect(MONGODB_URI);
 
 // Start the server
