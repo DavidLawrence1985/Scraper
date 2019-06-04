@@ -10,13 +10,13 @@ The articles are then displayed on the users page where the user can view commen
 
 ## Technologies 
 
--MongoDB with Mongoose as an orm. 
--Node.js
--Express server
--Handlesbars.js for rendering data to be displayed from the mongo database
--JavaScript and jquery for page funtionality and AJAX calls
--Bootstrap for modals 
--html and css for page layout and page styling
+    -MongoDB with Mongoose as an orm. 
+    -Node.js
+    -Express server
+    -Handlesbars.js for rendering data to be displayed from the mongo database
+    -JavaScript and jquery for page funtionality and AJAX calls
+    -Bootstrap for modals 
+    -html and css for page layout and page styling
 
 
 ## Screen Shots
@@ -27,7 +27,7 @@ The articles are then displayed on the users page where the user can view commen
 ![Scraper](/public/assets/img/after.png)
 
 ### leave comment modal
-![Scraper](/public/assets/img/leave.png)
+![Scraper](/public/assets/img/comment.png)
 
 ### view comment modal
 ![Scraper](/public/assets/img/view.png)
