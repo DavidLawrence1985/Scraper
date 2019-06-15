@@ -6,7 +6,7 @@ $(document).on("click", "#view-note", function() {
   var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:3001/articles/" + thisId ,
+    "url": "/articles/" + thisId ,
     "method": "GET",  
   }
   
